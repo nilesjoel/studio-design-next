@@ -51,7 +51,7 @@ export default function Home() {
 
         <ul>
           {ads.map((ad) => {
-            return (<li><Link href={`/ad/${ad.slug}`}>{JSON.stringify(Object.keys(ad))}</Link></li>);
+            return (<li><Link href={`/ad/${ad.slug}`}><strong>{ad.title}</strong> - {ad.slug}</Link></li>);
           })}
         </ul>
 

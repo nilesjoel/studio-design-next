@@ -35,6 +35,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }
   );
 
+  console.log("PATHS", paths);
+  console.log("-------------------------------")
   return {
     // paths: [
     //   {

@@ -69,9 +69,10 @@ export function StudioContextProvider({ children, state }: StudioContextProvider
 
     // Site Contexts
     const [siteContext, setSiteContext] = useState<StudioSiteContext>({});
-    const [headerContext, setHeaderContext] = useState<StudioHeaderContext>({ menuSegments: { site: [], social: [] } });
-    const [footerContext, setFooterContext] = useState({});
-
+    const [headerContext, setHeaderContext] = useState<StudioHeaderContext>({} as StudioHeaderContext);
+    const [footerContext, setFooterContext] = useState<StudioFooterContext>(
+        {config:{}} as StudioFooterContext);
+        
     /**  Copyright Copy */
     const footerCopyright = `${siteBrandName} © ${new Date().getFullYear()}`;
 
@@ -112,6 +113,7 @@ export function StudioContextProvider({ children, state }: StudioContextProvider
                             uid,
                             name,
                             weblinks,
+                            websocials,
                             pages,
                             ads,
                             metadata
@@ -129,7 +131,7 @@ export function StudioContextProvider({ children, state }: StudioContextProvider
                             }, context: "fetchWebContext - siteBrandName,uid,id,name,weblinks,pages,ads,metadata"
                         })
                         
-                        setSiteContext({ siteBrandName, uid, name, weblinks, pages, ads, metadata })
+                        setSiteContext({ siteBrandName, uid, name, weblinks, websocials, pages, ads, metadata })
                         // BRAND NAME
                         setSiteBrandName(siteBrandName);
                         // FOOTER CONTEXT
